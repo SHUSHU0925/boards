@@ -17,13 +17,23 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from . import views
+from playlist import (
+    views as playlist_views,
+)  # ここでインポートされているviewsがどちらのファイルか確認
 from django.conf import settings
 from django.conf.urls.static import static
 
 app_name = "apps"
+
 urlpatterns = [
-    path("", views.HomeView.as_view(), name="index"),
+    path("", playlist_views.HomeView.as_view(), name="index"),
     path("login/", include("login.urls")),
     path("admin/", admin.site.urls),
+    path("playlist/", include("playlist.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+lpatterns = [
+    path("admin/", admin.site.urls),
+    path("", playlist_views.HomeView.as_view(), name="index"),
+    path("playlist/", include("playlist.urls")),
+]

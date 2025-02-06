@@ -1,0 +1,52 @@
+body {
+    background-color: rgb(254, 217, 123);
+}
+
+.container {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.image-and-button {
+    display: flex;
+    align-items: center;
+    gap: 40px; /* 画像とボタンの間のスペースを調整 */
+}
+
+.image-and-button img {
+    margin-right: 20px; /* 画像とボタンの間のスペースを調整 */
+}
+
+#playlistForm {
+    margin-top: 30px; /* フォームと画像の間のスペースを調整 */
+    font-size: 25px;
+}
+
+.playlist-item {
+    font-size: 40px; /* 入力したデータのフォントサイズを大きくする */
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #71e3ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    font-size: 10px;
+    color: #fff;
+    border: none;
+    background-color: #f54b5c; /* Deleteボタンの背景色を変更 */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #3b4958;
+}

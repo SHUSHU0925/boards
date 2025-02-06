@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 
+
 from logging import getLogger
 
 logger = getLogger(__name__)

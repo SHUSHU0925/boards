@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+Board | Home
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class='container'>
+    <div class='content'>
+        <h1>My playlist</h1>
+        <div class="image-and-button">
+            <img src="{% static 'Gen.jpg' %}" alt="星野源の画像" style="width: 300px;">
+            <button onclick="toggleForm()" class="btn btn-primary">Create New Playlist</button>
+        </div>
+        <form id="playlistForm" method="post" action="{% url 'playlist:playlist_create' %}" style="display: none;">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+    <ul>
+        {% for playlist in playlists %}
+            <li class="playlist-item">{{ playlist.title }}
+                <form action="{% url 'playlist:playlist_delete' playlist.pk %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<script>
+    function toggleForm() {
+        var form = document.getElementById("playlistForm");
+        if (form.style.display === "none" || form.style.display === "") {
+            form.style.display = "block";
+        } else {
+            form.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}
